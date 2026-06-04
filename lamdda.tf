@@ -42,6 +42,20 @@ resource "aws_lambda_function" "lambda_function" {
 
   tags = {
     Environment = "production"
-    Application = "example"
+    Application = "DemoApp"
   }
+}
+
+resource "aws_lambda_function_url" "lambda_url" {
+  function_name      = aws_lambda_function.lambda_function.function_name
+  authorization_type = "NONE"
+
+  cors {
+    allow_origins = ["*"]
+    allow_methods = ["GET", "POST"]
+  }
+}
+
+output "lambda_url" {
+  value = aws_lambda_function_url.lambda_url.function_url
 }

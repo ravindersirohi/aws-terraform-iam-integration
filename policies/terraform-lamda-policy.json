@@ -10,7 +10,11 @@
                 "lambda:DeleteFunction",
                 "lambda:GetFunction",
                 "lambda:GetFunctionConfiguration",
-                "lambda:ListFunctions"
+                "lambda:ListFunctions",
+                "lambda:TagResource",
+                "lambda:UntagResource",
+                "lambda:ListVersionsByFunction",
+                "lambda:GetFunctionCodeSigningConfig"
             ],
             "Resource": "*"
         },
@@ -24,9 +28,12 @@
                 "iam:PutRolePolicy",
                 "iam:DeleteRolePolicy",
                 "iam:GetRole",
-                "iam:PassRole"
+                "iam:PassRole",
+                "iam:ListRolePolicies",
+                "iam:ListAttachedRolePolicies",
+                "iam:ListInstanceProfilesForRole"
             ],
-            "Resource": "*"
+            "Resource": "arn:aws:iam::{{aws_account_id}}:role/*"
         },
         {
             "Effect": "Allow",
