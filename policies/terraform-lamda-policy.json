@@ -4,6 +4,8 @@
         {
             "Effect": "Allow",
             "Action": [
+                "lambda:AddPermission",
+                "lambda:RemovePermission",
                 "lambda:CreateFunction",
                 "lambda:UpdateFunctionCode",
                 "lambda:UpdateFunctionConfiguration",
@@ -14,7 +16,11 @@
                 "lambda:TagResource",
                 "lambda:UntagResource",
                 "lambda:ListVersionsByFunction",
-                "lambda:GetFunctionCodeSigningConfig"
+                "lambda:GetFunctionCodeSigningConfig",
+                "lambda:CreateFunctionUrlConfig",
+                "lambda:GetFunctionUrlConfig",
+                "lambda:UpdateFunctionUrlConfig",
+                "lambda:DeleteFunctionUrlConfig"
             ],
             "Resource": "*"
         },
