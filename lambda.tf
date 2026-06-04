@@ -32,7 +32,8 @@ resource "aws_lambda_function" "lambda_function" {
   handler       = "index.handler"
   code_sha256   = data.archive_file.lambda_zip.output_base64sha256
   runtime       = "nodejs24.x"
-
+  tags          = local.tags
+  
   environment {
     variables = {
       ENVIRONMENT = "production"
@@ -40,10 +41,7 @@ resource "aws_lambda_function" "lambda_function" {
     }
   }
 
-  tags = {
-    Environment = "production"
-    Application = "DemoApp"
-  }
+  
 }
 
 resource "aws_lambda_function_url" "lambda_url" {
@@ -54,8 +52,4 @@ resource "aws_lambda_function_url" "lambda_url" {
     allow_origins = ["*"]
     allow_methods = ["GET", "POST"]
   }
-}
-
-output "lambda_url" {
-  value = aws_lambda_function_url.lambda_url.function_url
 }

@@ -128,6 +128,5 @@ curl https://<api-gateway-url>/
 
 ## Notes
 
-- The file name `lamdda.tf` appears to be a typo (should be `lambda.tf`)
 - Consider using environment variables for sensitive configuration in production
 - Monitor Lambda execution logs in CloudWatch
